@@ -17,6 +17,7 @@ export default function Home() {
       </Head>
       <main>
         <div className="background bg-gradient-to-tl from-[#1E1E1E] to-[#2E2E2E]">
+          <p>this is just a test</p>
         </div>
       </main>
     </>
