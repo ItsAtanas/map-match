@@ -9,6 +9,17 @@
    background-size: cover;
 }
 
-.bg2{
-    
-}
+@font-face {
+    font-family: "Montserrat";
+    font-weight: 700;
+    font-style: normal;
+    src: url("/font/Montserrat-Bold.woff2") format("woff2"),
+         url("/font/Montserrat-Bold.woff") format("woff");
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: local('Roboto'), url('/font/Roboto-Regular-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
