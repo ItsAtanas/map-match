@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import { Clock } from "./clock";
+import { Clock } from "../components/clock";
 
 export default function Home() {
   return (
