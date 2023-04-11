@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Link Tree threeeeeeeeeeeeeee</title>
+        <title>Link Tree threeeeeeeeeeeeeeeeee</title>
         <meta name="description" content="My Link Tree" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
