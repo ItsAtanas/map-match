@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { Clock } from "../components/clock";
 
 export default function CS() {
@@ -16,16 +17,19 @@ export default function CS() {
       </Head>
       <main>
         <div className="">
-          <div className="h-screen flex items-center justify-center">
-            <div className="flex flex-col justify-center text-center">
-              <p className="text-7xl text-white">Map Match</p>
-              <img
+          <div className="h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
+            <div className="flex flex-col justify-center text-center ">
+              <p className="text-7xl text-white font-primary-montserrat font-medium">
+                MAP MATCH
+              </p>
+              <Image
                 className="pt-10"
-                src="img/csgo.png"
+                alt="csLogo"
+                src="/img/csgo.png"
                 width={765}
                 height={183}
               />
-              <div className="text-3xl text-white pt-10">
+              <div className="text-3xl text-white pt-10 font-primary-montserrat font-medium">
                 RESETS 12AM: {<Clock />}
               </div>
             </div>

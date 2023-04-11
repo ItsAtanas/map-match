@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { Clock } from "../components/clock";
 
 export default function Val() {
@@ -16,16 +17,17 @@ export default function Val() {
       </Head>
       <main>
         <div className="">
-          <div className="h-screen flex items-center justify-center">
+          <div className="h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
             <div className="flex flex-col justify-center text-center">
-              <p className="text-7xl text-white">Map Match</p>
-              <img
+              <p className="text-7xl text-white font-primary-montserrat font-medium">MAP MATCH</p>
+              <Image
                 className="pt-10"
-                src="img/val.png"
+                alt="valorantLogo"
+                src="/img/val.png"
                 width={765}
                 height={183}
               />
-              <div className="text-3xl text-white pt-10">
+              <div className="text-3xl text-white pt-10 font-primary-montserrat font-medium">
                 RESETS 12AM: {<Clock />}
               </div>
             </div>
