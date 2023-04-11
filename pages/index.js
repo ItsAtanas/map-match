@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState } from "react";
-import BackgroundMagic from "../components/BackgroundMagic";
+import { Clock } from "./clock";
 
 export default function Home() {
   return (
@@ -16,8 +16,28 @@ export default function Home() {
         />
       </Head>
       <main>
-        <div className="background bg-gradient-to-tl from-[#1E1E1E] to-[#2E2E2E]">
-          <p>this is just a test</p>
+        <div className="">
+          <div className="h-screen flex items-center justify-center">
+            <div className="flex flex-col justify-center text-center">
+              <p className="text-7xl text-white">Map Match</p>
+              <p className="text-white pt-8">Select your game:</p>
+              <img
+                className="pt-10"
+                src="img/val.png"
+                width={765}
+                height={183}
+              />
+              <img
+                className="pt-10"
+                src="img/csgo.png"
+                width={765}
+                height={183}
+              />
+              <div className="text-3xl text-white pt-10">
+                RESETS 12AM: {<Clock />}
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </>
