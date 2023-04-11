@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import Link from "next/link";
 import { Clock } from "../components/clock";
 
 export default function Home() {
@@ -21,18 +21,22 @@ export default function Home() {
             <div className="flex flex-col justify-center text-center">
               <p className="text-7xl text-white">Map Match</p>
               <p className="text-white pt-8">Select your game:</p>
-              <img
-                className="pt-10"
-                src="img/val.png"
-                width={765}
-                height={183}
-              />
-              <img
-                className="pt-10"
-                src="img/csgo.png"
-                width={765}
-                height={183}
-              />
+              <Link href="/val">
+                <img
+                  className="pt-10"
+                  src="img/val.png"
+                  width={765}
+                  height={183}
+                />
+              </Link>
+              <Link href="/cs">
+                <img
+                  className="pt-10"
+                  src="img/csgo.png"
+                  width={765}
+                  height={183}
+                />
+              </Link>
               <div className="text-3xl text-white pt-10">
                 RESETS 12AM: {<Clock />}
               </div>
