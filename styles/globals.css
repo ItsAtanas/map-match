@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg{
+   background-image: url("/img/bg.jpg"); 
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-size: cover;
+}
+
 @font-face {
     font-family: "Montserrat";
     font-weight: 700;
