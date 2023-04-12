@@ -19,7 +19,9 @@ export default function Val() {
         <div className="">
           <div className="h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
             <div className="flex flex-col justify-center text-center">
-              <p className="text-7xl text-white font-primary-montserrat font-medium">MAP MATCH</p>
+              <p className="text-7xl text-white font-primary-montserrat font-medium">
+                MAP MATCH
+              </p>
               <Image
                 className="pt-10"
                 alt="valorantLogo"
