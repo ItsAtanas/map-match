@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg{
-   background-image: url("/img/bg.jpg"); 
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
-}
 
 @font-face {
     font-family: "Montserrat";
@@ -22,4 +16,8 @@
     src: local('Roboto'), url('/font/Roboto-Regular-webfont.woff') format('woff');
     font-weight: 700;
     font-style: normal;
+  }
+
+  .bgcolor {
+    background-color: #444444;
   }
