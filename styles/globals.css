@@ -2,24 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg{
-   background-image: url("/img/bg.jpg"); 
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-size: cover;
+:root {
+  background: #000;
+}
+
+.bg {
+  background-image: url("https://map-match-eosin.vercel.app/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
 }
 
 @font-face {
-    font-family: "Montserrat";
-    font-weight: 700;
-    font-style: normal;
-    src: url("/font/Montserrat-Bold.woff2") format("woff2"),
-         url("/font/Montserrat-Bold.woff") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'Roboto';
-    src: local('Roboto'), url('/font/Roboto-Regular-webfont.woff') format('woff');
-    font-weight: 700;
-    font-style: normal;
-  }
+  font-family: "Montserrat";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/font/Montserrat-Bold.woff2") format("woff2"),
+    url("/font/Montserrat-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url("/font/Roboto-Regular-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}

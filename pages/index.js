@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
       <main>
         <div className="">
-          <div className="h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
+          <div className="bg h-screen flex items-center justify-center">
             <div className="flex flex-col justify-center text-center">
               <p className="text-7xl text-white font-primary-montserrat font-medium">
                 MAP MATCH
