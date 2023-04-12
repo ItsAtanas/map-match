@@ -36,8 +36,10 @@ export default function Val() {
               <div className="flex flex-row justify-center">
                 <div className="w-1/4 bgcolor mr-5 ml-5">
                   <p className="text-white text-2xl pt-4">Map Guesses</p>
-                  {maps.map((m) => (
-                    <p className="text-white p-1">{m}</p>
+                  {maps.map((m, i) => (
+                    <p key={i} className="text-white p-1">
+                      {m}
+                    </p>
                   ))}
                 </div>
                 <div className="w-1/2">
