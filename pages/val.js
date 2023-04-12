@@ -1,8 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Clock } from "../components/clock";
+import { useState } from "react";
 
 export default function Val() {
+  const [maps, setMaps] = useState([]);
+  const [mapGuess, setMapGuess] = useState("");
+
   return (
     <>
       <Head>
@@ -30,17 +34,40 @@ export default function Val() {
                 <img className="w-16 h-16" src="img/full-star.png" />
               </div>
               <div className="flex flex-row justify-center">
-                <div className="w-1/4 bgcolor mr-5 ml-5"></div>
+                <div className="w-1/4 bgcolor mr-5 ml-5">
+                  <p className="text-white text-2xl pt-4">Map Guesses</p>
+                  {maps.map((m) => (
+                    <p className="text-white p-1">{m}</p>
+                  ))}
+                </div>
                 <div className="w-1/2">
                   <img src="img/val-guess.jpg" />
                 </div>
-                <div className="w-1/4 bgcolor mr-5 ml-5"></div>
+                <div className="w-1/4 bgcolor mr-5 ml-5">
+                  <p className="text-white text-2xl pt-4">LOCATION GUESSES:</p>
+                </div>
               </div>
-              <div className="">
-                <p className="text-white text-xl pt-2">What Map?</p>
+              <div className="flex flex-col items-center">
+                <p className="text-white text-xl pt-2 pb-2">What Map?</p>
+                <input
+                  onChange={(e) => setMapGuess(e.target.value)}
+                  className="w-1/3"
+                  value={mapGuess}
+                />
+                <p className="text-white text-xl pt-4 pb-2">
+                  Where in the map?
+                </p>
                 <input className="w-1/3" />
-                <p className="text-white text-xl pt-2">Where in the map?</p>
-                <input className="w-1/3" />
+                <button
+                  className="bg-slate-600 mt-4"
+                  type="button"
+                  onClick={(e) => {
+                    setMaps([...maps, mapGuess]);
+                    setMapGuess("");
+                  }}
+                >
+                  button
+                </button>
               </div>
             </div>
           </div>
