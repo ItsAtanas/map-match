@@ -1,8 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Clock } from "../components/clock";
+import { useState } from "react";
 
 export default function Val() {
+  const [maps, setMaps] = useState([]);
+  const [mapGuess, setMapGuess] = useState("");
+
   return (
     <>
       <Head>
@@ -19,18 +23,53 @@ export default function Val() {
         <div className="">
           <div className="h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
             <div className="flex flex-col justify-center text-center">
-              <p className="text-7xl text-white font-primary-montserrat font-medium">
+              <p className="text-5xl text-white font-primary-montserrat font-medium">
                 MAP MATCH
               </p>
-              <Image
-                className="pt-10"
-                alt="valorantLogo"
-                src="/img/val.png"
-                width={765}
-                height={183}
-              />
-              <div className="text-3xl text-white pt-10 font-primary-montserrat font-medium">
-                RESETS 12AM: {<Clock />}
+              <div className="flex flex-row justify-center pt-5 pb-5">
+                <img className="w-16 h-16" src="img/full-star.png" />
+                <img className="w-16 h-16" src="img/full-star.png" />
+                <img className="w-16 h-16" src="img/full-star.png" />
+                <img className="w-16 h-16" src="img/full-star.png" />
+                <img className="w-16 h-16" src="img/full-star.png" />
+              </div>
+              <div className="flex flex-row justify-center">
+                <div className="w-1/4 bgcolor mr-5 ml-5">
+                  <p className="text-white text-2xl pt-4">Map Guesses</p>
+                  {maps.map((m, i) => (
+                    <p key={i} className="text-white p-1">
+                      {m}
+                    </p>
+                  ))}
+                </div>
+                <div className="w-1/2">
+                  <img src="img/val-guess.jpg" />
+                </div>
+                <div className="w-1/4 bgcolor mr-5 ml-5">
+                  <p className="text-white text-2xl pt-4">LOCATION GUESSES:</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center">
+                <p className="text-white text-xl pt-2 pb-2">What Map?</p>
+                <input
+                  onChange={(e) => setMapGuess(e.target.value)}
+                  className="w-1/3"
+                  value={mapGuess}
+                />
+                <p className="text-white text-xl pt-4 pb-2">
+                  Where in the map?
+                </p>
+                <input className="w-1/3" />
+                <button
+                  className="bg-slate-600 mt-4"
+                  type="button"
+                  onClick={(e) => {
+                    setMaps([...maps, mapGuess]);
+                    setMapGuess("");
+                  }}
+                >
+                  button
+                </button>
               </div>
             </div>
           </div>
