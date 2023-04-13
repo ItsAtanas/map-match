@@ -24,11 +24,12 @@ export default function Val() {
       </Head>
       <main>
         <div className="">
-          <div className="h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
+          <div className="bg h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
             <div className="flex flex-col justify-center text-center">
               <p className="text-5xl text-white font-primary-montserrat font-medium">
                 MAP MATCH
               </p>
+              {/*Stars Section*/}
               <div className="flex flex-row justify-center pt-5 pb-5">
                 <img className="w-16 h-16" src="img/full-star.png" />
                 <img className="w-16 h-16" src="img/full-star.png" />
@@ -36,28 +37,33 @@ export default function Val() {
                 <img className="w-16 h-16" src="img/full-star.png" />
                 <img className="w-16 h-16" src="img/full-star.png" />
               </div>
+              {/*Main*/}
               <div className="flex flex-row justify-center">
-                <div className="w-1/4 bgcolor mr-5 ml-5">
-                  <p className="text-white text-2xl pt-4">Map Guesses</p>
+                {/*Left Map Guess Section*/}
+                <div className="w-1/4 bgcolor mr-20 ml-20 rounded-3xl ">
+                  <p className="text-white text-2xl pt-4">Map Guesses:</p>
                   {maps.map((m, i) => (
-                    <p key={i} className="text-white p-1">
+                    <p key={i} className="text-white p-1 text-lg">
                       {m}
                     </p>
                   ))}
                 </div>
+                {/*Middle Image*/}
                 <div className="w-1/2">
                   <img src="img/val-guess.jpg" />
                 </div>
-                <div className="w-1/4 bgcolor mr-5 ml-5">
-                  <p className="text-white text-2xl pt-4">LOCATION GUESSES:</p>
+                {/*Right Map Guess Section*/}
+                <div className="w-1/4 bgcolor mr-20 ml-20 rounded-3xl">
+                  <p className="text-white text-2xl pt-4">Location Guesses:</p>
                   {location.map((l, i) => (
-                    <p className="text-white" key={i}>
+                    <p className="text-white p-1 text-lg" key={i}>
                       {l}
                     </p>
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col items-center">
+              {/*Bottom Inputs/Button*/}
+              <div className="flex flex-col items-center mt-4">
                 <p className="text-white text-xl pt-2 pb-2">What Map?</p>
                 <input
                   onChange={(e) => setMapGuess(e.target.value)}
@@ -75,7 +81,7 @@ export default function Val() {
                   }}
                 />
                 <button
-                  className="bg-slate-600 mt-4"
+                  className="bg-transparent text-white font-semibold py-2 px-4 mt-5 border border-white rounded"
                   type="button"
                   onClick={(e) => {
                     setMaps([...maps, mapGuess]);
@@ -84,7 +90,7 @@ export default function Val() {
                     setLocationGuess("");
                   }}
                 >
-                  button
+                  Submit
                 </button>
               </div>
             </div>
