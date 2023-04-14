@@ -75,7 +75,12 @@ export default function Val() {
                 </div>
                 {/*Middle Image*/}
                 <div className="w-1/2">
-                  <img src="img/val-guess.jpg" />
+                  <Image
+                    width={800}
+                    height={800}
+                    sizes="(max-width: 100px)"
+                    src="/img/val-guess.jpg"
+                  />
                 </div>
                 {/*Right Map Guess Section*/}
                 <div className="w-1/4 bgcolor mr-20 ml-20 rounded-3xl">
