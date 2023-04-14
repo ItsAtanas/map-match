@@ -32,3 +32,25 @@
 .bgcolor {
   background-color: #444444;
 }
+
+@media only screen and (max-width: 1080px) {
+  .respond{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .left{
+    justify-content: center;
+    width: 50%;
+    height: 200px;
+  }
+
+  .right{
+    width: 50%;
+    height: 200px;
+  }
+  .middle{
+
+  }
+}

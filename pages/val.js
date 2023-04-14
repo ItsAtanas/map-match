@@ -68,9 +68,9 @@ export default function Val() {
                 />
               </div>
               {/*Main*/}
-              <div className="flex flex-row justify-center">
+              <div className="respond flex flex-row justify-center">
                 {/*Left Map Guess Section*/}
-                <div className="w-1/4 bgcolor mr-20 ml-20 rounded-3xl ">
+                <div className="left w-1/4 bgcolor mr-20 ml-20 rounded-3xl ">
                   <p className="text-white text-2xl pt-4">Map Guesses:</p>
                   {maps.map((m, i) => (
                     <p key={i} className="text-white p-1 text-lg">
@@ -79,7 +79,7 @@ export default function Val() {
                   ))}
                 </div>
                 {/*Middle Image*/}
-                <div className="w-1/2">
+                <div className="middle w-1/2">
                   <Image
                     alt="map"
                     width={800}
@@ -89,7 +89,7 @@ export default function Val() {
                   />
                 </div>
                 {/*Right Map Guess Section*/}
-                <div className="w-1/4 bgcolor mr-20 ml-20 rounded-3xl">
+                <div className="right w-1/4 bgcolor mr-20 ml-20 rounded-3xl">
                   <p className="text-white text-2xl pt-4">Location Guesses:</p>
                   {location.map((l, i) => (
                     <p className="text-white p-1 text-lg" key={i}>
