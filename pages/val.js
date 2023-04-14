@@ -24,18 +24,18 @@ export default function Val() {
       </Head>
       <main>
         <div className="">
-          <div className="bg h-screen flex items-center justify-center bg-gradient-to-br from-primary-mmblack to-black">
+          <div className="bg h-screen flex items-center justify-center bg-gradient-to-br  from-primary-mmblack to-black">
             <div className="flex flex-col justify-center text-center">
               <p className="text-5xl text-white font-primary-montserrat font-medium">
                 MAP MATCH
               </p>
               {/*Stars Section*/}
               <div className="flex flex-row justify-center pt-5 pb-5">
-                <img className="w-16 h-16" src="img/full-star.png" />
-                <img className="w-16 h-16" src="img/full-star.png" />
-                <img className="w-16 h-16" src="img/full-star.png" />
-                <img className="w-16 h-16" src="img/full-star.png" />
-                <img className="w-16 h-16" src="img/full-star.png" />
+                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
+                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
+                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
+                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
+                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
               </div>
               {/*Main*/}
               <div className="flex flex-row justify-center">
@@ -67,14 +67,14 @@ export default function Val() {
                 <p className="text-white text-xl pt-2 pb-2">What Map?</p>
                 <input
                   onChange={(e) => setMapGuess(e.target.value)}
-                  className="w-1/3"
+                  className="w-1/3 p-1 rounded"
                   value={mapGuess}
                 />
                 <p className="text-white text-xl pt-4 pb-2">
                   Where in the map?
                 </p>
                 <input
-                  className="w-1/3"
+                  className="w-1/3 p-1 rounded"
                   value={locationGuess}
                   onChange={(e) => {
                     setLocationGuess(e.target.value);
