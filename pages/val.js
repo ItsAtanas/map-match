@@ -32,30 +32,35 @@ export default function Val() {
               {/*Stars Section*/}
               <div className="flex flex-row justify-center pt-5 pb-5">
                 <Image
+                  alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
                   src="/img/empty-star.png"
                 />
                 <Image
+                  alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
                   src="/img/empty-star.png"
                 />
                 <Image
+                  alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
                   src="/img/empty-star.png"
                 />
                 <Image
+                  alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
                   src="/img/empty-star.png"
                 />
                 <Image
+                  alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
@@ -76,6 +81,7 @@ export default function Val() {
                 {/*Middle Image*/}
                 <div className="w-1/2">
                   <Image
+                    alt="map"
                     width={800}
                     height={800}
                     sizes="(max-width: 100px)"
