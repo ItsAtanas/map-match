@@ -36,35 +36,35 @@ export default function Val() {
                   width={60}
                   height={60}
                   className="mr-2"
-                  src="/img/empty-star.png"
+                  src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
-                  src="/img/empty-star.png"
+                  src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
-                  src="/img/empty-star.png"
+                  src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
-                  src="/img/empty-star.png"
+                  src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
                   className="mr-2"
-                  src="/img/empty-star.png"
+                  src="/img/Fmpty-Star.png"
                 />
               </div>
               {/*Main*/}
