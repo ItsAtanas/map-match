@@ -31,11 +31,36 @@ export default function Val() {
               </p>
               {/*Stars Section*/}
               <div className="flex flex-row justify-center pt-5 pb-5">
-                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
-                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
-                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
-                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
-                <img className="w-16 h-16 mr-2" src="img/empty-star.png" />
+                <Image
+                  width={60}
+                  height={60}
+                  className="mr-2"
+                  src="/img/empty-star.png"
+                />
+                <Image
+                  width={60}
+                  height={60}
+                  className="mr-2"
+                  src="/img/empty-star.png"
+                />
+                <Image
+                  width={60}
+                  height={60}
+                  className="mr-2"
+                  src="/img/empty-star.png"
+                />
+                <Image
+                  width={60}
+                  height={60}
+                  className="mr-2"
+                  src="/img/empty-star.png"
+                />
+                <Image
+                  width={60}
+                  height={60}
+                  className="mr-2"
+                  src="/img/empty-star.png"
+                />
               </div>
               {/*Main*/}
               <div className="flex flex-row justify-center">
