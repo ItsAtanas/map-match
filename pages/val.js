@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Clock } from "../components/clock";
 import { useState } from "react";
 
 export default function Val() {
@@ -24,46 +23,48 @@ export default function Val() {
       </Head>
       <main>
         <div className="">
-          <div className="bg h-screen flex items-center justify-center bg-gradient-to-br  from-primary-mmblack to-black">
-            <div className="flex flex-col justify-center text-center">
-              <p className="text-5xl text-white font-primary-montserrat font-medium">
-                MAP MATCH
-              </p>
+          <div className="">
+            <div className="flex flex-col justify-center text-center mt-3 mb-3">
+              <div>
+                <p className="text-5xl text-white font-primary-montserrat font-medium">
+                  MAP MATCH
+                </p>
+              </div>
               {/*Stars Section*/}
               <div className="flex flex-row justify-center pt-5 pb-5">
                 <Image
                   alt="star"
                   width={60}
                   height={60}
-                  className="mr-2"
+                  className="mr-2 star"
                   src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
-                  className="mr-2"
+                  className="mr-2 star"
                   src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
-                  className="mr-2"
+                  className="mr-2 star"
                   src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
-                  className="mr-2"
+                  className="mr-2 star"
                   src="/img/Fmpty-Star.png"
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
-                  className="mr-2"
+                  className="mr-2 star"
                   src="/img/Fmpty-Star.png"
                 />
               </div>
@@ -103,14 +104,14 @@ export default function Val() {
                 <p className="text-white text-xl pt-2 pb-2">What Map?</p>
                 <input
                   onChange={(e) => setMapGuess(e.target.value)}
-                  className="w-1/3 p-1 rounded"
+                  className="w-1/3 p-1 rounded input-size"
                   value={mapGuess}
                 />
                 <p className="text-white text-xl pt-4 pb-2">
                   Where in the map?
                 </p>
                 <input
-                  className="w-1/3 p-1 rounded"
+                  className="w-1/3 p-1 rounded input-size"
                   value={locationGuess}
                   onChange={(e) => {
                     setLocationGuess(e.target.value);
