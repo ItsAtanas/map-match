@@ -85,5 +85,13 @@
   .input-size {
     width: 300px;
   }
+  .backarrowsize {
+    height: 60px;
+    width: 60px;
+  }
+
+  .font-change {
+    font-size: 2em;
+  }
 }
 /*Val Page End*/
