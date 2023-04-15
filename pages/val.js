@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Val() {
   const [maps, setMaps] = useState([]);
@@ -25,13 +26,27 @@ export default function Val() {
         <div className="">
           <div className="">
             <div className="flex flex-col justify-center text-center mt-3 mb-3">
-              <div>
-                <p className="text-5xl text-white font-primary-montserrat font-medium">
-                  MAP MATCH
-                </p>
+              {/*Title And Backarrow*/}
+              <div className="grid grid-cols-3 ">
+                <div className="ml-5 ">
+                  <Link href="/">
+                    <Image
+                      alt="backspace"
+                      width={70}
+                      height={70}
+                      className="backarrowsize"
+                      src="/img/backarrowno.png"
+                    />
+                  </Link>
+                </div>
+                <div className="mb-3">
+                  <p className="text-5xl text-white font-primary-montserrat font-medium font-change">
+                    MAP MATCH
+                  </p>
+                </div>
               </div>
               {/*Stars Section*/}
-              <div className="flex flex-row justify-center pt-5 pb-5">
+              <div className="flex flex-row justify-center pb-5">
                 <Image
                   alt="star"
                   width={60}
