@@ -29,28 +29,61 @@
   font-style: normal;
 }
 
+/*Val Page Start*/
 .bgcolor {
   background-color: #444444;
 }
 
 @media only screen and (max-width: 1080px) {
-  .respond{
+  .respond {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
   }
 
-  .left{
+  .left {
     justify-content: center;
-    width: 50%;
+    width: 400px;
     height: 200px;
+    margin-bottom: 15px;
   }
 
-  .right{
-    width: 50%;
+  .right {
+    width: 400px;
     height: 200px;
+    margin-top: 15px;
   }
-  .middle{
-
+  .middle {
+    width: 400px;
+  }
+  .input-size {
+    width: 400px;
   }
 }
+
+@media only screen and (max-width: 420px) {
+  .left {
+    justify-content: center;
+    width: 300px;
+    height: 200px;
+    margin-bottom: 15px;
+  }
+
+  .right {
+    width: 300px;
+    height: 200px;
+    margin-top: 15px;
+  }
+  .middle {
+    width: 300px;
+  }
+  .star {
+    width: 45px;
+    height: 45px;
+  }
+  .input-size {
+    width: 300px;
+  }
+}
+/*Val Page End*/
