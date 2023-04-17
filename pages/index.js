@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock } from "../components/clock";
+import { Carousel, initTE } from "tw-elements";
+initTE({ Carousel });
 
 export default function Home() {
   return (
