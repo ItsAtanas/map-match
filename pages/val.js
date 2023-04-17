@@ -2,6 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import RIP from "../components/RIP";
+
+var guessesLeft = 5;
 
 export default function Val() {
   const [maps, setMaps] = useState([]);
@@ -10,6 +13,30 @@ export default function Val() {
   const [location, setLocation] = useState([]);
   const [locationGuess, setLocationGuess] = useState("");
 
+  const counter = () => {
+    if (guessesLeft > 0) guessesLeft--;
+    else console.log("Max guesses reached!");
+  };
+
+  if (guessesLeft == 0) {
+    return (
+      <>
+        <Head>
+          <title>Map Match | Val</title>
+          <meta name="description" content="Match these nuts fucker" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+          <meta
+            property="og:image"
+            content="https://atanasb.me/img/1662670355918.jpeg"
+          />
+        </Head>
+        <main>
+          <RIP />
+        </main>
+      </>
+    );
+  }
   return (
     <>
       <Head>
@@ -83,10 +110,11 @@ export default function Val() {
                   src="/img/Fmpty-Star.png"
                 />
               </div>
+
               {/*Main*/}
               <div className="respond flex flex-row justify-center">
                 {/*Left Map Guess Section*/}
-                <div className="left w-1/4 bgcolor mr-20 ml-20 rounded-3xl ">
+                <div className="left w-1/4 bgcolor mr-20 ml-20 rounded-3xl">
                   <p className="text-white text-2xl pt-4">Map Guesses:</p>
                   {maps.map((m, i) => (
                     <p key={i} className="text-white p-1 text-lg">
@@ -94,8 +122,11 @@ export default function Val() {
                     </p>
                   ))}
                 </div>
-                {/*Middle Image*/}
+                {/*Middle Image and Progress Bar*/}
                 <div className="middle w-1/2">
+                  <div className="flex justify-center text-white font-primary-roboto font-medium text-xl">
+                    <div>GUESSES LEFT: {guessesLeft} </div>
+                  </div>
                   <Image
                     alt="map"
                     width={800}
@@ -140,6 +171,8 @@ export default function Val() {
                     setMapGuess("");
                     setLocation([...location, locationGuess]);
                     setLocationGuess("");
+                    counter();
+                    console.log(guessesLeft);
                   }}
                 >
                   Submit
