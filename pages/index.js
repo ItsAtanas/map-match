@@ -1,9 +1,36 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock } from "../components/clock";
 
 export default function Home() {
+  const [countdown, setCountdown] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const now = new Date().getTime();
+      const futureDate = new Date(now + 3 * 24 * 60 * 60 * 1000); // 3 days from now
+      const remainingTime = Math.max(futureDate.getTime() - now, 0);
+      const days = Math.floor(remainingTime / (24 * 60 * 60 * 1000));
+      const hours = Math.floor(
+        (remainingTime % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000)
+      );
+      const minutes = Math.floor(
+        (remainingTime % (60 * 60 * 1000)) / (60 * 1000)
+      );
+      const seconds = Math.floor((remainingTime % (60 * 1000)) / 1000);
+      setCountdown({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const { days, hours, minutes, seconds } = countdown;
   return (
     <>
       <Head>
@@ -41,10 +68,21 @@ export default function Home() {
                   height={183}
                 />
               </Link>
-              {/* want a countdown timer */}
-              <div className="text-3xl text-white pt-10 font-primary-montserrat font-medium">
-                RESETS 12AM: {<Clock />}
-              </div>
+              {/* want a countdown timer YOU FUCKING GOT IT BABY */}
+              <span className="countdown font-mono text-2xl">
+                <span style={{ "--value": days }}></span>:
+                <span
+                  style={{ "--value": hours.toString().padStart(2, "0") }}
+                ></span>
+                :
+                <span
+                  style={{ "--value": minutes.toString().padStart(2, "0") }}
+                ></span>
+                :
+                <span
+                  style={{ "--value": seconds.toString().padStart(2, "0") }}
+                ></span>
+              </span>
             </div>
           </div>
         </div>
