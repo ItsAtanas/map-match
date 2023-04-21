@@ -18,7 +18,7 @@ export default function CS() {
         <meta property="og:image" content="/img/M.png" />
         <meta
           property="og:image"
-          content="https://atanasb.me/img/1662670355918.jpeg"
+          content="https://map-match-eosin.vercel.app/img/M.png/"
         />
       </Head>
       <main>
