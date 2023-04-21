@@ -10,6 +10,8 @@ export default function Val() {
   const [location, setLocation] = useState([]);
   const [locationGuess, setLocationGuess] = useState("");
 
+  const mapOfTheDay = "ascent";
+  const locationOfTheDay = "mid";
   return (
     <>
       <Head>
@@ -87,12 +89,22 @@ export default function Val() {
               <div className="respond flex flex-row justify-center">
                 {/*Left Map Guess Section*/}
                 <div className="left w-1/4 bgcolor mr-20 ml-20 rounded-3xl ">
-                  <p className="text-white text-2xl pt-4">Map Guesses:</p>
-                  {maps.map((m, i) => (
-                    <p key={i} className="text-white p-1 text-lg">
-                      {m}
-                    </p>
-                  ))}
+                  <p className=" text-white text-2xl pt-4">Map Guesses:</p>
+                  {maps.map((m, i) => {
+                    return (
+                      <>
+                        {m === mapOfTheDay ? (
+                          <p key={i} className="text-green-400 p-1 text-lg">
+                            {m}
+                          </p>
+                        ) : (
+                          <p key={i} className="text-white p-1 text-lg">
+                            {m}
+                          </p>
+                        )}
+                      </>
+                    );
+                  })}
                 </div>
                 {/*Middle Image*/}
                 <div className="middle w-1/2">
@@ -118,7 +130,9 @@ export default function Val() {
               <div className="flex flex-col items-center mt-4">
                 <p className="text-white text-xl pt-2 pb-2">What Map?</p>
                 <input
-                  onChange={(e) => setMapGuess(e.target.value)}
+                  onChange={(e) =>
+                    setMapGuess((e.target.value || "").toLowerCase())
+                  }
                   className="w-1/3 p-1 rounded input-size"
                   value={mapGuess}
                 />
