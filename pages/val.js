@@ -6,12 +6,36 @@ import Link from "next/link";
 export default function Val() {
   const [maps, setMaps] = useState([]);
   const [mapGuess, setMapGuess] = useState("");
-
   const [location, setLocation] = useState([]);
   const [locationGuess, setLocationGuess] = useState("");
+  const [starone, setStarOne] = useState("/img/Fmpty-Star.png");
 
   const mapOfTheDay = "ascent";
   const locationOfTheDay = "mid";
+  let maptrue = false;
+  let locationtrue = false;
+
+  const mapLogic = () => {
+    if (!maps.includes(mapOfTheDay)) {
+      setMaps([...maps, mapGuess]);
+      setMapGuess("");
+    }
+  };
+
+  const locationLogic = () => {
+    if (!location.includes(locationOfTheDay)) {
+      setLocation([...location, locationGuess]);
+      setLocationGuess("");
+    }
+  };
+
+  const gameEnd = () => {
+    if (maps.length === 1) {
+      setStarOne("/img/full-star.png");
+    } else if (maps.length === 2) {
+    }
+  };
+
   return (
     <>
       <Head>
@@ -55,14 +79,14 @@ export default function Val() {
                   width={60}
                   height={60}
                   className="mr-2 star"
-                  src="/img/Fmpty-Star.png"
+                  src={starone}
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
                   className="mr-2 star"
-                  src="/img/Fmpty-Star.png"
+                  src={"/img/Fmpty-Star.png"}
                 />
                 <Image
                   alt="star"
@@ -92,19 +116,21 @@ export default function Val() {
                 <div className="left w-1/4 bgcolor mr-20 ml-20 rounded-3xl ">
                   <p className=" text-white text-2xl pt-4">Map Guesses:</p>
                   {maps.map((m, i) => {
-                    return (
-                      <>
-                        {m === mapOfTheDay ? (
-                          <p key={i} className="text-green-400 p-1 text-lg">
-                            {m}
-                          </p>
-                        ) : (
-                          <p key={i} className="text-white p-1 text-lg">
-                            {m}
-                          </p>
-                        )}
-                      </>
-                    );
+                    if (m === mapOfTheDay) {
+                      maptrue = true;
+                      return (
+                        <p key={i} className="text-green-400 p-1 text-lg">
+                          {m}
+                        </p>
+                      );
+                    } else {
+                      console.log(maps);
+                      return (
+                        <p key={i} className="text-white p-1 text-lg">
+                          {m}
+                        </p>
+                      );
+                    }
                   })}
                 </div>
                 {/*Middle Image*/}
@@ -120,41 +146,56 @@ export default function Val() {
                 {/*Right Map Guess Section*/}
                 <div className="right w-1/4 bgcolor mr-20 ml-20 rounded-3xl">
                   <p className="text-white text-2xl pt-4">Location Guesses:</p>
-                  {location.map((l, i) => (
-                    <p className="text-white p-1 text-lg" key={i}>
-                      {l}
-                    </p>
-                  ))}
+                  {location.map((l, i) => {
+                    if (l === locationOfTheDay) {
+                      locationtrue = true;
+                      return (
+                        <p className="text-green-400 p-1 text-lg" key={i}>
+                          {l}
+                        </p>
+                      );
+                    } else {
+                      return (
+                        <p className="text-white p-1 text-lg" key={i}>
+                          {l}
+                        </p>
+                      );
+                    }
+                  })}
                 </div>
               </div>
               {/*Bottom Inputs/Button*/}
               <div className="flex flex-col items-center mt-4">
                 <p className="text-white text-xl pt-2 pb-2">What Map?</p>
+                {/*Map Input*/}
                 <input
-                  onChange={(e) =>
-                    setMapGuess((e.target.value || "").toLowerCase())
-                  }
+                  onChange={(e) => setMapGuess(e.target.value.toLowerCase())}
                   className="w-1/3 p-1 rounded input-size"
                   value={mapGuess}
+                  disabled={maptrue === true}
                 />
-                <p className="text-white text-xl pt-4 pb-2">
+                <p className="text-white text-xl pt-4 pb-0">
                   Where in the map?
                 </p>
+                <p className=" text-gray-400 text-sm pb-2 pt-">
+                  *T Spawn, CT Spawn, A Site, B Site, C Site, Mid*
+                </p>
+                {/*Location Input*/}
                 <input
                   className="w-1/3 p-1 rounded input-size"
                   value={locationGuess}
-                  onChange={(e) => {
-                    setLocationGuess(e.target.value);
-                  }}
+                  disabled={locationtrue === true}
+                  onChange={(e) =>
+                    setLocationGuess(e.target.value.toLowerCase())
+                  }
                 />
                 <button
                   className="bg-transparent text-white font-semibold py-2 px-4 mt-5 border border-white rounded"
                   type="button"
+                  disabled={maptrue === true && locationtrue === true}
                   onClick={(e) => {
-                    setMaps([...maps, mapGuess]);
-                    setMapGuess("");
-                    setLocation([...location, locationGuess]);
-                    setLocationGuess("");
+                    mapLogic();
+                    locationLogic();
                   }}
                 >
                   Submit
