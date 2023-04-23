@@ -15,6 +15,17 @@ export default function Val() {
 
   let maptrue = false;
   let locationtrue = false;
+
+  const mapLogic = () => {
+    setMaps([...maps, mapGuess]);
+    setMapGuess("");
+  };
+
+  const locationLogic = () => {
+    setLocation([...location, locationGuess]);
+    setLocationGuess("");
+  };
+
   return (
     <>
       <Head>
@@ -145,6 +156,7 @@ export default function Val() {
               {/*Bottom Inputs/Button*/}
               <div className="flex flex-col items-center mt-4">
                 <p className="text-white text-xl pt-2 pb-2">What Map?</p>
+                {/*Map Input*/}
                 <input
                   onChange={(e) => setMapGuess(e.target.value.toLowerCase())}
                   className="w-1/3 p-1 rounded input-size"
@@ -157,6 +169,7 @@ export default function Val() {
                 <p className=" text-gray-400 text-sm pb-2 pt-">
                   *T Spawn, CT Spawn, A Site, B Site, C Site, Mid*
                 </p>
+                {/*Location Input*/}
                 <input
                   className="w-1/3 p-1 rounded input-size"
                   value={locationGuess}
@@ -168,11 +181,10 @@ export default function Val() {
                 <button
                   className="bg-transparent text-white font-semibold py-2 px-4 mt-5 border border-white rounded"
                   type="button"
+                  disabled={maptrue === true && locationtrue === true}
                   onClick={(e) => {
-                    setMaps([...maps, mapGuess]);
-                    setMapGuess("");
-                    setLocation([...location, locationGuess]);
-                    setLocationGuess("");
+                    mapLogic();
+                    locationLogic();
                   }}
                 >
                   Submit
