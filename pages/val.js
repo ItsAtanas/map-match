@@ -6,24 +6,26 @@ import Link from "next/link";
 export default function Val() {
   const [maps, setMaps] = useState([]);
   const [mapGuess, setMapGuess] = useState("");
-
   const [location, setLocation] = useState([]);
   const [locationGuess, setLocationGuess] = useState("");
 
   const mapOfTheDay = "ascent";
   const locationOfTheDay = "mid";
-
   let maptrue = false;
   let locationtrue = false;
 
   const mapLogic = () => {
-    setMaps([...maps, mapGuess]);
-    setMapGuess("");
+    if (!maps.includes(mapOfTheDay)) {
+      setMaps([...maps, mapGuess]);
+      setMapGuess("");
+    }
   };
 
   const locationLogic = () => {
-    setLocation([...location, locationGuess]);
-    setLocationGuess("");
+    if (!location.includes(locationOfTheDay)) {
+      setLocation([...location, locationGuess]);
+      setLocationGuess("");
+    }
   };
 
   return (
