@@ -8,6 +8,7 @@ export default function Val() {
   const [mapGuess, setMapGuess] = useState("");
   const [location, setLocation] = useState([]);
   const [locationGuess, setLocationGuess] = useState("");
+  const [starone, setStarOne] = useState("/img/Fmpty-Star.png");
 
   const mapOfTheDay = "ascent";
   const locationOfTheDay = "mid";
@@ -25,6 +26,13 @@ export default function Val() {
     if (!location.includes(locationOfTheDay)) {
       setLocation([...location, locationGuess]);
       setLocationGuess("");
+    }
+  };
+
+  const gameEnd = () => {
+    if (maps.length === 1) {
+      setStarOne("/img/full-star.png");
+    } else if (maps.length === 2) {
     }
   };
 
@@ -71,14 +79,14 @@ export default function Val() {
                   width={60}
                   height={60}
                   className="mr-2 star"
-                  src="/img/Fmpty-Star.png"
+                  src={starone}
                 />
                 <Image
                   alt="star"
                   width={60}
                   height={60}
                   className="mr-2 star"
-                  src="/img/Fmpty-Star.png"
+                  src={"/img/Fmpty-Star.png"}
                 />
                 <Image
                   alt="star"
@@ -116,6 +124,7 @@ export default function Val() {
                         </p>
                       );
                     } else {
+                      console.log(maps);
                       return (
                         <p key={i} className="text-white p-1 text-lg">
                           {m}
