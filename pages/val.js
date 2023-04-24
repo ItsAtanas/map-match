@@ -2,13 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import Vallogic from "@/components/vallogic";
 
 export default function Val() {
   const [maps, setMaps] = useState([]);
   const [mapGuess, setMapGuess] = useState("");
   const [location, setLocation] = useState([]);
   const [locationGuess, setLocationGuess] = useState("");
-  const [starone, setStarOne] = useState("/img/Fmpty-Star.png");
 
   const mapOfTheDay = "ascent";
   const locationOfTheDay = "mid";
@@ -26,13 +26,6 @@ export default function Val() {
     if (!location.includes(locationOfTheDay)) {
       setLocation([...location, locationGuess]);
       setLocationGuess("");
-    }
-  };
-
-  const gameEnd = () => {
-    if (maps.length === 1) {
-      setStarOne("/img/full-star.png");
-    } else if (maps.length === 2) {
     }
   };
 
@@ -73,43 +66,7 @@ export default function Val() {
                 </div>
               </div>
               {/*Stars Section*/}
-              <div className="flex flex-row justify-center pb-5">
-                <Image
-                  alt="star"
-                  width={60}
-                  height={60}
-                  className="mr-2 star"
-                  src={starone}
-                />
-                <Image
-                  alt="star"
-                  width={60}
-                  height={60}
-                  className="mr-2 star"
-                  src={"/img/Fmpty-Star.png"}
-                />
-                <Image
-                  alt="star"
-                  width={60}
-                  height={60}
-                  className="mr-2 star"
-                  src="/img/Fmpty-Star.png"
-                />
-                <Image
-                  alt="star"
-                  width={60}
-                  height={60}
-                  className="mr-2 star"
-                  src="/img/Fmpty-Star.png"
-                />
-                <Image
-                  alt="star"
-                  width={60}
-                  height={60}
-                  className="mr-2 star"
-                  src="/img/Fmpty-Star.png"
-                />
-              </div>
+              <Vallogic maps={maps} />
               {/*Main*/}
               <div className="respond flex flex-row justify-center">
                 {/*Left Map Guess Section*/}
