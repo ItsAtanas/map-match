@@ -2,7 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import Vallogic from "@/components/vallogic";
+import Vallogic from "@/components/Vallogic";
+
 
 export default function Val() {
   const [maps, setMaps] = useState([]);
@@ -66,7 +67,7 @@ export default function Val() {
                 </div>
               </div>
               {/*Stars Section*/}
-              <Vallogic maps={maps} />
+              <Vallogic maps={maps} location={location}/>
               {/*Main*/}
               <div className="respond flex flex-row justify-center">
                 {/*Left Map Guess Section*/}
@@ -81,7 +82,6 @@ export default function Val() {
                         </p>
                       );
                     } else {
-                      console.log(maps);
                       return (
                         <p key={i} className="text-white p-1 text-lg">
                           {m}
