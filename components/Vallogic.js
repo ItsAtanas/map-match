@@ -82,8 +82,6 @@ const Vallogic = (props) => {
     },  [props.maps, props.location] 
   )
 
-
-
   return (
     <div className="flex flex-row justify-center pb-5">
       <Image
