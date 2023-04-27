@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Vallogic from "@/components/Vallogic";
 
@@ -13,8 +13,23 @@ export default function Val() {
 
   const mapOfTheDay = "ascent";
   const locationOfTheDay = "mid";
-  let maptrue = false;
-  let locationtrue = false;
+  const [isMapOfTheDayFound, setIsMapOfTheDayFound] = useState(false);
+  const [isLocationOfTheDayFound, setIsLocationOfTheDayFound] = useState(false);
+
+  const [render, setRender] = useState(false);
+  
+
+  useEffect(() => {
+    if (maps.includes(mapOfTheDay)) {
+      setIsMapOfTheDayFound(true);
+    }
+    if (location.includes(locationOfTheDay)) {
+      setIsLocationOfTheDayFound(true);
+    }
+    if (maps.includes(mapOfTheDay) && location.includes(locationOfTheDay)) {
+      setRender(true);
+    }
+  }, [maps, location]);
 
   const mapLogic = () => {
     if (!maps.includes(mapOfTheDay)) {
@@ -67,28 +82,20 @@ export default function Val() {
                 </div>
               </div>
               {/*Stars Section*/}
-              <Vallogic maps={maps} location={location}/>
+              <Vallogic maps={maps} location={location} render={render}/>
               {/*Main*/}
               <div className="respond flex flex-row justify-center">
                 {/*Left Map Guess Section*/}
                 <div className="left w-1/4 bgcolor mr-20 ml-20 rounded-3xl ">
                   <p className=" text-white text-2xl pt-4">Map Guesses:</p>
-                  {maps.map((m, i) => {
-                    if (m === mapOfTheDay) {
-                      maptrue = true;
-                      return (
-                        <p key={i} className="text-green-400 p-1 text-lg">
-                          {m}
-                        </p>
-                      );
-                    } else {
-                      return (
-                        <p key={i} className="text-white p-1 text-lg">
-                          {m}
-                        </p>
-                      );
-                    }
-                  })}
+                  {maps.map((m, i) => (
+                    <p
+                      key={i}
+                      className={`p-1 text-lg ${m === mapOfTheDay ? 'text-green-400' : 'text-white'}`}
+                    >
+                      {m}
+                    </p>
+                  ))}
                 </div>
                 {/*Middle Image*/}
                 <div className="middle w-1/2">
@@ -103,22 +110,14 @@ export default function Val() {
                 {/*Right Map Guess Section*/}
                 <div className="right w-1/4 bgcolor mr-20 ml-20 rounded-3xl">
                   <p className="text-white text-2xl pt-4">Location Guesses:</p>
-                  {location.map((l, i) => {
-                    if (l === locationOfTheDay) {
-                      locationtrue = true;
-                      return (
-                        <p className="text-green-400 p-1 text-lg" key={i}>
-                          {l}
-                        </p>
-                      );
-                    } else {
-                      return (
-                        <p className="text-white p-1 text-lg" key={i}>
-                          {l}
-                        </p>
-                      );
-                    }
-                  })}
+                  {location.map((l, i) => (
+                    <p
+                      key={i}
+                      className={`p-1 text-lg ${l === locationOfTheDay ? 'text-green-400' : 'text-white'}`}
+                    >
+                      {l}
+                    </p>
+                  ))}
                 </div>
               </div>
               {/*Bottom Inputs/Button*/}
@@ -129,7 +128,7 @@ export default function Val() {
                   onChange={(e) => setMapGuess(e.target.value.toLowerCase())}
                   className="w-1/3 p-1 rounded input-size"
                   value={mapGuess}
-                  disabled={maptrue === true}
+                  disabled={isMapOfTheDayFound === true}
                 />
                 <p className="text-white text-xl pt-4 pb-0">
                   Where in the map?
@@ -141,7 +140,7 @@ export default function Val() {
                 <input
                   className="w-1/3 p-1 rounded input-size"
                   value={locationGuess}
-                  disabled={locationtrue === true}
+                  disabled={isLocationOfTheDayFound === true}
                   onChange={(e) =>
                     setLocationGuess(e.target.value.toLowerCase())
                   }
@@ -149,7 +148,7 @@ export default function Val() {
                 <button
                   className="bg-transparent text-white font-semibold py-2 px-4 mt-5 border border-white rounded"
                   type="button"
-                  disabled={maptrue === true && locationtrue === true}
+                  disabled={isMapOfTheDayFound === true && isLocationOfTheDayFound === true}
                   onClick={(e) => {
                     mapLogic();
                     locationLogic();
