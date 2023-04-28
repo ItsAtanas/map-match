@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import Image from "next/image";
+
 const Vallogic = (props) => {
   const fullStar = "/img/full-star.png"
   const emptyStar = "/img/Fmpty-Star.png"
