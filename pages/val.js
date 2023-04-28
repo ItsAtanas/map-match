@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Vallogic from "@/components/Vallogic";
 
-
 export default function Val() {
   const [maps, setMaps] = useState([]);
   const [mapGuess, setMapGuess] = useState("");
@@ -13,11 +12,11 @@ export default function Val() {
 
   const mapOfTheDay = "ascent";
   const locationOfTheDay = "mid";
+
   const [isMapOfTheDayFound, setIsMapOfTheDayFound] = useState(false);
   const [isLocationOfTheDayFound, setIsLocationOfTheDayFound] = useState(false);
 
   const [render, setRender] = useState(false);
-  
 
   useEffect(() => {
     if (maps.includes(mapOfTheDay)) {
