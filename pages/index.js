@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import Clock from "@/components/Clock";
+import Coutdown from "@/components/Coutdown";
 
 export default function Home() {
   return (
@@ -42,7 +42,7 @@ export default function Home() {
                 />
               </Link>
               {/* want a countdown timer */}
-              <Clock />
+              <Coutdown />
             </div>
           </div>
         </div>
