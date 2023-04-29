@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import Clock from "@/components/Clock";
 
 export default function Home() {
   return (
@@ -42,6 +42,7 @@ export default function Home() {
                 />
               </Link>
               {/* want a countdown timer */}
+              <Clock />
             </div>
           </div>
         </div>
