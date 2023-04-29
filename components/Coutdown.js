@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Clock = () => {
+const Coutdown = () => {
   const [reset, setReset] = useState(false);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -46,4 +46,4 @@ const Clock = () => {
   );
 };
 
-export default Clock;
+export default Coutdown;
