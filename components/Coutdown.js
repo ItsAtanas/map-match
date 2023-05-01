@@ -5,7 +5,7 @@ const Coutdown = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  let data = "04/29/2023 23:59:59";
+  let data = "05/01/2023 23:59:59";
 
   useEffect(() => {
     const target = new Date(data);
