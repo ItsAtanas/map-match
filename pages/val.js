@@ -81,7 +81,7 @@ export default function Val() {
                 </div>
               </div>
               {/*Stars Section*/}
-              <Vallogic maps={maps} location={location} render={render}/>
+              <Vallogic maps={maps} location={location} render={render} />
               {/*Main*/}
               <div className="respond flex flex-row justify-center">
                 {/*Left Map Guess Section*/}
@@ -90,7 +90,9 @@ export default function Val() {
                   {maps.map((m, i) => (
                     <p
                       key={i}
-                      className={`p-1 text-lg ${m === mapOfTheDay ? 'text-green-400' : 'text-white'}`}
+                      className={`p-1 text-lg ${
+                        m === mapOfTheDay ? "text-green-400" : "text-white"
+                      }`}
                     >
                       {m}
                     </p>
@@ -112,7 +114,9 @@ export default function Val() {
                   {location.map((l, i) => (
                     <p
                       key={i}
-                      className={`p-1 text-lg ${l === locationOfTheDay ? 'text-green-400' : 'text-white'}`}
+                      className={`p-1 text-lg ${
+                        l === locationOfTheDay ? "text-green-400" : "text-white"
+                      }`}
                     >
                       {l}
                     </p>
@@ -128,6 +132,12 @@ export default function Val() {
                   className="w-1/3 p-1 rounded input-size"
                   value={mapGuess}
                   disabled={isMapOfTheDayFound === true}
+                  onKeyDown={(a) => {
+                    if (a.key === "Enter") {
+                      mapLogic();
+                      locationLogic();
+                    }
+                  }}
                 />
                 <p className="text-white text-xl pt-4 pb-0">
                   Where in the map?
@@ -143,11 +153,20 @@ export default function Val() {
                   onChange={(e) =>
                     setLocationGuess(e.target.value.toLowerCase())
                   }
+                  onKeyDown={(a) => {
+                    if (a.key === "Enter") {
+                      mapLogic();
+                      locationLogic();
+                    }
+                  }}
                 />
                 <button
                   className="bg-transparent text-white font-semibold py-2 px-4 mt-5 border border-white rounded"
                   type="button"
-                  disabled={isMapOfTheDayFound === true && isLocationOfTheDayFound === true}
+                  disabled={
+                    isMapOfTheDayFound === true &&
+                    isLocationOfTheDayFound === true
+                  }
                   onClick={(e) => {
                     mapLogic();
                     locationLogic();
