@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { format, utcToZonedTime, addDays } from "date-fns-tz";
+import { utcToZonedTime } from "date-fns-tz";
+import { addDays } from "date-fns";
 
 const Countdown = () => {
   const [hours, setHours] = useState(0);
@@ -11,7 +12,6 @@ const Countdown = () => {
     const today = new Date();
     const date = addDays(today, days);
     date.setHours(23, 59, 59, 999);
-    const format = 'yyyy-MM-dd HH:mm:ss.SSS'
     const ET = 'America/New_York';
     const zonedDate = utcToZonedTime(date, ET)
     return zonedDate;
