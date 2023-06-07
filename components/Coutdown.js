@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
-
-const getFutureDate = (days) => {
-  const futureDate = new Date();
-  futureDate.setDate(futureDate.getDate() + days);
-  futureDate.setHours(23, 59, 59, 999);
-  return futureDate;
-};
+import { format, utcToZonedTime, addDays } from "date-fns-tz";
 
 const Countdown = () => {
   const [hours, setHours] = useState(0);
@@ -13,12 +7,22 @@ const Countdown = () => {
   const [seconds, setSeconds] = useState(0);
   const [count, setCount] = useState(0);
 
+  const getETDate = (days) => {
+    const today = new Date();
+    const date = addDays(today, days);
+    date.setHours(23, 59, 59, 999);
+    const format = 'yyyy-MM-dd HH:mm:ss.SSS'
+    const ET = 'America/New_York';
+    const zonedDate = utcToZonedTime(date, ET)
+    return zonedDate;
+  };
+
   useEffect(() => {
-    const target = getFutureDate(count);
+    const target = getETDate(count);
 
     const interval = setInterval(() => {
-      const now = new Date();
-      const difference = target.getTime() - now.getTime();
+      const nowInET = utcToZonedTime(new Date(), 'America/New_York');
+      const difference = target.getTime() - nowInET.getTime();
 
       const h = Math.floor(
         (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
